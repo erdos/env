@@ -1,0 +1,4 @@
+#!/bin/bash
+set -x
+xrandr --output VGA1 --auto
+xrandr --output VGA1 --mode 1024x768
