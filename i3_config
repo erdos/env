@@ -129,7 +129,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $command_mode "H̲u    U̲s    R̲estart    E̲xit    K̲ill"
+set $command_mode "H̲u    U̲s    R̲estart    E̲xit    K̲ill    L̲ock"
 
 mode $command_mode {
      bindsym h exec "setxkbmap hu"
@@ -146,6 +146,8 @@ mode $command_mode {
      bindsym c reload
      bindsym r restart
      bindsym e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+     
+     bindsym l exec "i3lock -c 3322FF"
      
      # kill focused window
      bindsym k kill
