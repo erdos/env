@@ -1,0 +1,4 @@
+{:user {:plugins [;[claravis "0.1.0-SNAPSHOT"]
+                  [lein-cljfmt "0.5.7"]
+                  [lein-hiera "1.0.0"]
+                  [venantius/ultra "0.5.2"]]}}
