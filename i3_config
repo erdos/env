@@ -12,7 +12,7 @@ floating_modifier $mod
 bindsym $mod+g exec thunar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -142,13 +142,13 @@ mode $command_mode {
      bindsym Escape mode "default"
      bindsym Space mode "default"
 
-     
+
      bindsym c reload
      bindsym r restart
      bindsym --release e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-     
+
      bindsym --release l exec "i3lock -c 3322FF"
-     
+
      # kill focused window
      bindsym k kill
 }
@@ -161,7 +161,7 @@ bindsym $mod+c mode $command_mode
 bar {
         status_command i3status
 	separator_symbol ":"
-	strip_workspace_numbers yes	
+	strip_workspace_numbers yes
 
 	colors {
 	       background #000000
@@ -183,6 +183,9 @@ client.urgent           #2f343a #900000 #ffffff #900000
 
 focus_follows_mouse yes
 
+for_window [title="erdos@localhost:~"] border pixel 1
+for_window [title="emacs@localhost.localdomain"] border pixel 14
+
 # ThinkPad TrackPoint middle button scroll.
 exec "xinput set-prop \"TPPS/2 IBM TrackPoint\" \"Evdev Wheel Emulation\" 1"
 exec "xinput set-prop \"TPPS/2 IBM TrackPoint\" \"Evdev Wheel Emulation Button\" 2"
@@ -191,10 +194,12 @@ exec "xinput set-prop \"TPPS/2 IBM TrackPoint\" \"Evdev Wheel Emulation Timeout\
 exec "xinput set-prop \"TPPS/2 IBM TrackPoint\" \"Evdev Wheel Emulation Axes\" 6 7 4 5"
 
 # sound and power
-exec "xfce4-volumed"
+exec "xfce4-volumed-pulse"
 exec "xfce4-power-manager"
 
 # network manager
 exec "nm-applet"
 
+# background color
 
+exec --no-startup-id xsetroot -solid "#5577aa"
