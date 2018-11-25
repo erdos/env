@@ -1,0 +1,47 @@
+general {
+        colors = true
+        interval = 5
+	output_format = "i3bar"
+}
+
+order += "disk /"
+order += "disk /home"
+order += "volume master"
+order += "wireless wlp59s0"
+order += "ethernet eth0"
+order += "battery 0"
+order += "tztime local"
+
+wireless wlp59s0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining %consumption"
+}
+
+tztime local {
+        format = "%H:%M:%S %Z"
+}
+
+disk "/" {
+        format = "/ %free"
+}
+
+disk "/home" {
+        format = "/home %free"
+}
+
+volume master {
+	format = "♪: %volume"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
