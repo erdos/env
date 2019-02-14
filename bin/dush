@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# prints file/directory sizes
+
+du -sh * | sort -h
