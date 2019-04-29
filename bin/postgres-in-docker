@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+docker run -d \
+    --name postgresql \
+    -p 5432:5432 \
+    -e POSTGRES_USERNAME=pgadmin \
+    -e POSTGRES_PASSWORD=pgadmin \
+    frodenas/postgresql \
+ && sleep 10 \
+&& PGPASSWORD=pgadmin psql -h localhost -p 5432 -U pgadmin -d postgres -c "ALTER ROLE postgres WITH ENCRYPTED PASSWORD 'postgres'" \
+ && docker attach postgresql
